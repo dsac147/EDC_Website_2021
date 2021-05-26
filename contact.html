@@ -43,17 +43,17 @@
 			
 			<ul class="main-menu">
 
-				<a href="index.html" class="site-logo"><img src="img/edc/core-img/edc_logo.jpg" alt=""></a>
-				<li class="active"><a href="contact.html" >Contact</a></li>
-				<li><a href="team.html">Team</a></li>
-				<li><a href="initiative.html">Initiatives</a></li>
+				<a href="index" class="site-logo"><img src="img/edc/core-img/edc_logo.jpg" alt=""></a>
+				<li class="active"><a href="contact" >Contact</a></li>
+				<li><a href="team">Team</a></li>
+				<li><a href="initiative">Initiatives</a></li>
 				<li><a href="https://innovation.bmsit.ac.in">Innovation & Incubation</a></li>
-				<li><a href="index.html#events">Events</a></li>
+				<li><a href="events">Events</a></li>
 				
-				<li><a href="about.html">About Us</a></li>
+				<li><a href="about">About Us</a></li>
 				
 				
-				<li ><a href="index.html">Home</a></li>
+				<li ><a href="index">Home</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -74,24 +74,24 @@
 	<section class="contact-page spad pt-0">
 		<div class="container">
 			
-				<div class="contact-form spad pb-0">
+				<div class="contact-form pb-0">
 				<div class="section-title text-center">
 					<h3>GET IN TOUCH</h3>
-					<p>Contact us for best deals and offer</p>
+					<img src ="img/contact.png" style="width: 40%;"/>
 				</div>
-				<form class="comment-form --contact">
+				<form class="comment-form --contact" id="contact">
 					<div class="row">
 						<div class="col-lg-4">
-							<input type="text" placeholder="Your Name">
+							<input type="text" placeholder="Your Name" id="name">
 						</div>
 						<div class="col-lg-4">
-							<input type="text" placeholder="Your Email">
+							<input type="text" placeholder="Your Email" id="mail">
 						</div>
 						<div class="col-lg-4">
-							<input type="text" placeholder="Subject">
+							<input type="text" placeholder="Subject" id="subject">
 						</div>
 						<div class="col-lg-12">
-							<textarea placeholder="Message"></textarea>
+							<textarea placeholder="Message" id="message"></textarea>
 							<div class="text-center">
 								<button class="site-btn">SUBMIT</button>
 							</div>
@@ -100,7 +100,6 @@
 				</form>
 			</div>
 			</div>
-			
 		</div>
 	</section>
 	<!-- Courses section end-->
@@ -129,6 +128,32 @@
 	<!-- load for map -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
 	<script src="js/map.js"></script>
-	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script type="text/javascript">
+		function sendEmail(){
+			var name = $("#name");
+			var email = $("#email");
+			var subject = $("#subject");
+			var body = $("#message");
+		
+		if(isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(body) && isNotEmpty(subject)){
+			$.ajax({
+				url: 'sendemail.php',
+				method: 'POST',
+				dataType: 'json',
+				data:{
+					name: name.val(),
+					email: email.val(),
+					subject: subject.val(),
+					body: body.val()
+				}, success: function(response){
+					$('#contact')[0].reset();
+					alert('Message Sent');
+				}
+			});
+		}
+	}
+</script>
 </body>
 </html>

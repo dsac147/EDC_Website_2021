@@ -428,19 +428,19 @@ ol {
 .owl-item.active .hs-item .hs-subtitle {
 	-webkit-transition: all 0.5s ease 0.4s;
 	-o-transition: all 0.5s ease 0.4s;
-	transition: all 0.5s ease 0.4s;
+	transition: all 1.5s ease 0.4s;
 }
 
 .owl-item.active .hs-item .hs-title {
 	-webkit-transition: all 0.5s ease 0.6s;
 	-o-transition: all 0.5s ease 0.6s;
-	transition: all 0.5s ease 0.6s;
+	transition: all 0.5s ease 1.6s;
 }
 
 .owl-item.active .hs-item .hs-des {
 	-webkit-transition: all 0.5s ease 0.8s;
 	-o-transition: all 0.5s ease 0.8s;
-	transition: all 0.5s ease 0.8s;
+	transition: all 0.5s ease 1.8s;
 }
 
 .owl-item.active .hs-item .site-btn {
